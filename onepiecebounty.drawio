@@ -1,0 +1,271 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.8">
+  <diagram name="Page-1" id="IVX245Gr6l-OIouRtwAm">
+    <mxGraphModel dx="1156" dy="1120" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Create your character&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;A text input that can be left blank&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Affiliation&lt;/div&gt;&lt;div&gt;A dropdown that has default value &quot;Any&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Bounty&lt;/div&gt;&lt;div&gt;A number input that goes up to 10 billion berries. Can be left empty&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacing=2;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="250" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-2" value="Generate random character" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="60" y="370" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-3" value="Next" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-4" value="" style="endArrow=classic;html=1;rounded=1;curved=0;entryX=0.376;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="165" y="400" as="sourcePoint" />
+            <mxPoint x="380" y="480" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="165" y="470" />
+              <mxPoint x="330" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-5" value="1. /generate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-4">
+          <mxGeometry x="-0.0167" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="589" y="595" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="589" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-24" value="get_random_inputs()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=0" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-23">
+          <mxGeometry x="-0.024" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-6" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;1. Generate prompt. If all inputs are not supplied, call get_random_inputs() to fill them in first.&lt;div&gt;&lt;br&gt;&lt;div&gt;2. Call OpenAI /images/generations endpoint with final prompt&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="250" y="510" width="210" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-9" value="" style="endArrow=classic;html=1;rounded=0;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="560" as="sourcePoint" />
+            <mxPoint x="80" y="570" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-15" value="Prompt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-9">
+          <mxGeometry x="0.1578" y="15" relative="1" as="geometry">
+            <mxPoint y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-10" value="" style="endArrow=classic;html=1;rounded=0;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="90" y="620" as="sourcePoint" />
+            <mxPoint x="240" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-14" value="Image url" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-10">
+          <mxGeometry x="0.0481" y="12" relative="1" as="geometry">
+            <mxPoint x="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-12" value="OpenAI Images API" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-16" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-3" target="x0_VoWOY0ZmD_UFVMrzw-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="620" as="sourcePoint" />
+            <mxPoint x="490" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="345" />
+              <mxPoint x="370" y="60" />
+              <mxPoint x="640" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-17" value="onSubmit()&lt;div&gt;Store the name, affiliation,&lt;/div&gt;&lt;div&gt;&amp;nbsp;and bounty in local context&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-16">
+          <mxGeometry x="-0.1231" y="2" relative="1" as="geometry">
+            <mxPoint x="12" y="35" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-18" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Customize your character&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Gender&lt;/div&gt;&lt;div&gt;Dropdown that can be male/female/any&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Age&lt;/div&gt;&lt;div&gt;Dropdown - young adult/middle aged/elderly/any&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Eye color&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Dropdown - colors of rainbow + black, any&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Hair color&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Dropdown - colors of rainbow + white, black, any&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Skin color&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Dropdown - colors of rainbow + pale, beige, light brown, medium brown, deep brown&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacing=2;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-19" value="Generate bounty poster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="520" y="380" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-20" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;entryX=0.662;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-19" target="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="620" as="sourcePoint" />
+            <mxPoint x="420" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="640" y="470" />
+              <mxPoint x="390" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-21" value="1, /generate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-20">
+          <mxGeometry x="0.0026" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-22" target="x0_VoWOY0ZmD_UFVMrzw-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-27" value="&lt;b&gt;/generate/name&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-26">
+          <mxGeometry x="-0.0143" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-22" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Params: partial list of inputs&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Returns: complete list of inputs&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;For each missing dropdown value, choose random value.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Name will be chosen last using rest of custom values at /generate/name&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="510" width="220" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-25" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Params: list of inputs excluding name&lt;div&gt;Returns: name&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. Create a prompt to get the One Piece character name given the list of inputs/known information.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;2. Call OpenAI /chat/completions endpoint with final prompt&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+          <mxGeometry x="590" y="750" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-33" value="OpenAI&lt;div&gt;Chat API&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="835" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-34" value="" style="endArrow=classic;html=1;rounded=0;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="810" as="sourcePoint" />
+            <mxPoint x="420" y="820" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="485" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-35" value="Prompt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-34">
+          <mxGeometry x="0.1578" y="15" relative="1" as="geometry">
+            <mxPoint x="9" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-36" value="" style="endArrow=classic;html=1;rounded=0;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="880" as="sourcePoint" />
+            <mxPoint x="580" y="873" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="505" y="922.73" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-37" value="Response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-36">
+          <mxGeometry x="0.0481" y="12" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-6" target="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-40" value="/generate" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="510" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-41" value="get_random_inputs()" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="655" y="510" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-42" value="/generate/name" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="660" y="750" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-43" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacing=2;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="980" width="250" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-44" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.48;entryY=0.939;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.2;exitY=0;exitDx=0;exitDy=0;curved=0;exitPerimeter=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="292.5" y="500" as="sourcePoint" />
+            <mxPoint x="150" y="399.8699999999999" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="293" y="510" />
+              <mxPoint x="293" y="490" />
+              <mxPoint x="150" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-45" value="2. image url" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-44">
+          <mxGeometry x="-0.2952" y="2" relative="1" as="geometry">
+            <mxPoint x="1" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-48" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="500" as="sourcePoint" />
+            <mxPoint x="651" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="490" />
+              <mxPoint x="651" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-50" value="2. image url" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-48">
+          <mxGeometry x="-0.2493" y="-1" relative="1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-51" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.319;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;curved=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="580" as="sourcePoint" />
+            <mxPoint x="235" y="980" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="127" y="480" />
+              <mxPoint x="30" y="480" />
+              <mxPoint x="30" y="930" />
+              <mxPoint x="235" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-60" value="3. go to&amp;nbsp;&lt;div&gt;final view&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-51">
+          <mxGeometry x="-0.0476" y="-5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-53" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1050" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-54" value="&lt;b&gt;Custom Character&#39;s Bounty&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1000" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-55" value="Re-generate this bounty poster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="127.5" y="1260" width="212.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-56" value="Start over" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="127.5" y="1220" width="212.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-57" value="" style="endArrow=classic;html=1;rounded=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="x0_VoWOY0ZmD_UFVMrzw-55" target="x0_VoWOY0ZmD_UFVMrzw-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="1290" as="sourcePoint" />
+            <mxPoint x="360" y="870" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="1275" />
+              <mxPoint x="420" y="950" />
+              <mxPoint x="355" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-58" value="&lt;b&gt;/generate&lt;/b&gt;&lt;div&gt;with same inputs&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-57">
+          <mxGeometry x="-0.5103" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-61" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="671" y="412" as="sourcePoint" />
+            <mxPoint x="260" y="980" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="671" y="472" />
+              <mxPoint x="820" y="470" />
+              <mxPoint x="820" y="960" />
+              <mxPoint x="260" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x0_VoWOY0ZmD_UFVMrzw-63" value="3. go to&lt;div&gt;final view&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="x0_VoWOY0ZmD_UFVMrzw-61">
+          <mxGeometry x="-0.3061" y="4" relative="1" as="geometry">
+            <mxPoint y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
