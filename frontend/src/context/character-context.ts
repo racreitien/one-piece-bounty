@@ -1,5 +1,11 @@
 import { createContext, useContext } from "react";
-import { Gender, Group } from "../types/character-types";
+import {
+  EyeColor,
+  Gender,
+  Group,
+  HairColor,
+  SkinColor,
+} from "../types/character-types";
 import { UpdateCharacterAction } from "./character-provider";
 
 export type CharacterState = {
@@ -8,20 +14,20 @@ export type CharacterState = {
   bounty: number;
   gender: Gender;
   age: number;
-  eyeColor: string;
-  hairColor: string;
-  skinColor: string;
+  eyeColor: EyeColor;
+  hairColor: HairColor;
+  skinColor: SkinColor;
 };
 
 export const defaultCharacterState: CharacterState = {
   name: "",
-  group: Group.Unaffiliated,
+  group: Group.Random,
   bounty: 0,
-  gender: Gender.Any,
+  gender: Gender.Random,
   age: 0,
-  eyeColor: "",
-  hairColor: "",
-  skinColor: "",
+  eyeColor: EyeColor.Random,
+  hairColor: HairColor.Random,
+  skinColor: SkinColor.Random,
 };
 
 type CharacterContext = {
@@ -29,7 +35,7 @@ type CharacterContext = {
   dispatch: React.Dispatch<UpdateCharacterAction>;
 };
 
-const characterContext = createContext<CharacterContext>({
+export const characterContext = createContext<CharacterContext>({
   state: defaultCharacterState,
   dispatch: () => {
     throw new Error(
@@ -39,5 +45,3 @@ const characterContext = createContext<CharacterContext>({
 });
 
 export const useCharacterContext = () => useContext(characterContext);
-
-export default characterContext;

@@ -1,20 +1,24 @@
-import React from "react";
-import { View } from "../types/types";
-import { useViewContext } from "../context/view-context";
-
-const onSubmit = () => {};
+import React, { useState } from "react";
+import {
+  useGenerateRandomHandler,
+  useSubmitHandler,
+} from "./create-character-view-hooks";
 
 export const CreateCharacterView: React.FC = () => {
-  const { setView } = useViewContext();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = useSubmitHandler();
+  const onGenerateRandom = useGenerateRandomHandler(setErrorMessage);
 
   return (
     <>
       <h2>Create your character</h2>
+      {errorMessage && <p>{errorMessage}</p>}
       <div className="card">
-        <button onClick={() => setView(View.CustomizeCharacter)}>Next</button>
+        <button onClick={onSubmit}>Next</button>
       </div>
       <div className="card">
-        <button onClick={() => onSubmit()}>
+        <button onClick={onGenerateRandom}>
           Generate random bounty poster
         </button>
       </div>

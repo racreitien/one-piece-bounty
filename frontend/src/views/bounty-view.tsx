@@ -1,10 +1,53 @@
 import React from "react";
-import { useCharacterContext } from "../context/character-context";
+import {
+  defaultCharacterState,
+  useCharacterContext,
+} from "../context/character-context";
+import { useViewContext, ViewStateActionType } from "../context/view-context";
+import { View } from "../types/types";
+
+const useStartOverHandler = () => {
+  const { dispatch } = useViewContext();
+  const { dispatch: dispatchCharacterChange } = useCharacterContext();
+
+  return () => {
+    dispatchCharacterChange({
+      data: defaultCharacterState,
+    });
+    dispatch({
+      type: ViewStateActionType.SetView,
+      currentView: View.CreateCharacter,
+    });
+  };
+};
 
 export const BountyView: React.FC = () => {
   const {
-    state: { name },
+    state: { name, group, bounty },
   } = useCharacterContext();
+  const {
+    state: { description },
+  } = useViewContext();
 
-  return <h2>{name}'s Bounty</h2>;
+  const onStartOver = useStartOverHandler();
+
+  return (
+    <>
+      <h1>{name}</h1>
+      <h2>{group}</h2>
+      <h3>
+        {"Bounty: "}
+        <img
+          src="/src/images/berry.svg"
+          alt="berry currency symbol"
+          className="berryIcon"
+        />
+        {` ${bounty}`}
+      </h3>
+      <div className="desc">{description}</div>
+      <div className="card">
+        <button onClick={onStartOver}>Start over</button>
+      </div>
+    </>
+  );
 };

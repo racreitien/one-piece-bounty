@@ -1,19 +1,31 @@
-import { ReactNode, useState } from "react";
-import viewContext from "./view-context";
-import { View } from "../types/types";
+import { ReactNode, useReducer } from "react";
+import viewContext, {
+  defaultViewState,
+  UpdateViewStateAction,
+  ViewState,
+  ViewStateActionType,
+} from "./view-context";
+
+function reducer(state: ViewState, action: UpdateViewStateAction): ViewState {
+  switch (action.type) {
+    case ViewStateActionType.SetView:
+      return { ...state, currentView: action.currentView };
+    case ViewStateActionType.SetBountyImage:
+      return { ...state, bountyImage: action.bountyImage };
+    case ViewStateActionType.SetDescription:
+      return { ...state, description: action.description };
+    default:
+      return state;
+  }
+}
 
 export const ViewProvider = ({ children }: { children: ReactNode }) => {
-  const [currentView, setCurrentView] = useState<View>(View.CreateCharacter);
-
-  const setView = (view: View) => {
-    console.log("Calling setView with ", view);
-    setCurrentView(view);
-  };
+  const [state, dispatch] = useReducer(reducer, defaultViewState);
 
   const ViewContextProvider = viewContext.Provider;
 
   return (
-    <ViewContextProvider value={{ currentView, setView }}>
+    <ViewContextProvider value={{ state, dispatch }}>
       {children}
     </ViewContextProvider>
   );

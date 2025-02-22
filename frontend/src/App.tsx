@@ -8,7 +8,9 @@ import React from "react";
 import { useViewContext } from "./context/view-context";
 
 const App: React.FC = () => {
-  const { currentView } = useViewContext();
+  const {
+    state: { currentView },
+  } = useViewContext();
 
   const renderView = () => {
     switch (currentView) {

@@ -1,20 +1,29 @@
 import React from "react";
-import { useViewContext } from "../context/view-context";
+import { useViewContext, ViewStateActionType } from "../context/view-context";
 import { View } from "../types/types";
 
+const useBack = () => {
+  const { dispatch } = useViewContext();
+
+  return () => {
+    dispatch({
+      type: ViewStateActionType.SetView,
+      currentView: View.CreateCharacter,
+    });
+  };
+};
+
 export const CustomizeCharacterView: React.FC = () => {
-  const { setView } = useViewContext();
+  const onBack = useBack();
 
   return (
     <>
       <h2>Customize your character</h2>
       <div className="card">
-        <button onClick={() => setView(View.CreateCharacter)}>Back</button>
+        <button onClick={onBack}>Back</button>
       </div>
       <div className="card">
-        <button onClick={() => setView(View.CreateCharacter)}>
-          Generate bounty poster
-        </button>
+        <button onClick={() => {}}>Generate bounty poster</button>
       </div>
     </>
   );

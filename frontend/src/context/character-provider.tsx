@@ -1,5 +1,6 @@
 import { ReactNode, useReducer } from "react";
-import characterContext, {
+import {
+  characterContext,
   defaultCharacterState,
   type CharacterState,
 } from "./character-context";
