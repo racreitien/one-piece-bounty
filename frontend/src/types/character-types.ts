@@ -1,5 +1,5 @@
 export enum Group {
-  Random = "",
+  Random = "Random",
   Navy = "Navy",
   StrawHatPirates = "Straw Hat Pirates",
   BaroqueWorks = "Baroque Works",
@@ -14,14 +14,14 @@ export enum Group {
 }
 
 export enum Gender {
-  Random = "",
+  Random = "random",
   Male = "male",
   Female = "female",
   NonBinary = "non-binary",
 }
 
 export enum EyeColor {
-  Random = "",
+  Random = "random",
   Black = "black",
   Brown = "brown",
   Red = "red",
@@ -34,7 +34,7 @@ export enum EyeColor {
 }
 
 export enum HairColor {
-  Random = "",
+  Random = "random",
   White = "white",
   Gray = "gray",
   Black = "black",
@@ -49,7 +49,7 @@ export enum HairColor {
 }
 
 export enum SkinColor {
-  Random = "",
+  Random = "random",
   Pale = "pale",
   Beige = "beige",
   LightBrown = "light brown",

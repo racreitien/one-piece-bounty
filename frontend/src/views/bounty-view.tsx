@@ -33,18 +33,20 @@ export const BountyView: React.FC = () => {
 
   return (
     <>
-      <h1>{name}</h1>
+      <h1 className="view-title">{name}</h1>
       <h2>{group}</h2>
       <h3>
         {"Bounty: "}
         <img
           src="/src/images/berry.svg"
           alt="berry currency symbol"
-          className="berryIcon"
+          className="berry-icon"
         />
-        {` ${bounty}`}
+        {` ${bounty.toLocaleString()}`}
       </h3>
-      <div className="desc">{description}</div>
+      <div className="form-container">
+        <div className="desc">{description}</div>
+      </div>
       <div className="card">
         <button onClick={onStartOver}>Start over</button>
       </div>

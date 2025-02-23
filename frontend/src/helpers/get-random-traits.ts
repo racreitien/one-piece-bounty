@@ -24,7 +24,7 @@ function getRandomEnumValue<T extends { [key: string]: string }>(
 ): T[keyof T] {
   let enumValues = Object.values(enumObj) as T[keyof T][];
 
-  enumValues = enumValues.filter((value) => value !== "");
+  enumValues = enumValues.filter((value) => value.toLowerCase() !== "random");
 
   const randomIndex = getRandomNumber(0, enumValues.length - 1);
   return enumValues[randomIndex];

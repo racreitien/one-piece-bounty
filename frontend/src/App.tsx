@@ -25,7 +25,12 @@ const App: React.FC = () => {
     }
   };
 
-  return <CharacterProvider>{renderView()}</CharacterProvider>;
+  return (
+    <CharacterProvider>
+      <header className="app-header">One Piece Character Creator</header>
+      <div className="main-content">{renderView()}</div>
+    </CharacterProvider>
+  );
 };
 
 export default App;

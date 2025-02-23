@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,15 +19,24 @@
 }
 
 body {
-  margin-top: 70px;
-  display: flex;
-  min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  padding-top: 150px;
+  width: 100%;
+  max-width: 23rem;
+  margin: auto;
 }
 
 h1 {
   font-size: 2.9em;
   line-height: 0.5;
+}
+
+h2 {
+  padding-bottom: 5px;
 }
 
 h3 {
@@ -39,9 +54,14 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   color: #3b2f2f;
+  width: 100%;
 }
 button:hover {
   background-color: #97cbcf;
+}
+
+.button-container {
+  padding-top: 25px;
 }
 
 .desc {
@@ -51,8 +71,66 @@ button:hover {
   margin: 0 auto;
 }
 
-.berryIcon {
+.berry-icon {
   width: 25px;
   height: 25px;
   vertical-align: text-top;
+}
+
+.app-header {
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  text-align: left;
+  font-weight: 500;
+}
+
+.form-container {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #3b2f2f;
+}
+
+.view-title {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: loadingAnimation 1s infinite;
 }

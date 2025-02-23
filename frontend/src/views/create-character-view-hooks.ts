@@ -13,6 +13,7 @@ import {
 import { View } from "../types/types";
 
 export const useGenerateRandomHandler = (
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>
 ) => {
   const {
@@ -23,6 +24,8 @@ export const useGenerateRandomHandler = (
 
   return async () => {
     setErrorMessage("");
+    setLoading(true);
+
     const traits = getRandomTraits({
       group: Group.Random,
       bounty: 0,
@@ -64,20 +67,21 @@ export const useGenerateRandomHandler = (
       });
     } catch (err) {
       setErrorMessage(String(err));
+    } finally {
+      setLoading(false);
     }
   };
 };
 
-export const useSubmitHandler = () => {
+export const useSubmitHandler = (name: string, group: Group) => {
   const { dispatch: dispatchViewChange } = useViewContext();
   const { dispatch: dispatchCharacterChange } = useCharacterContext();
 
   return () => {
     dispatchCharacterChange({
       data: {
-        name: "Pudding",
-        group: Group.BigMomPirates,
-        bounty: 20000000,
+        name,
+        group,
       },
     });
 
