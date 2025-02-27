@@ -1,4 +1,8 @@
-import { generateDescription, generateName } from "../constants/endpoints";
+import {
+  generate,
+  generateDescription,
+  generateName,
+} from "../constants/endpoints";
 import { useCharacterContext } from "../context/character-context";
 import { useViewContext, ViewStateActionType } from "../context/view-context";
 import { getRandomTraits } from "../helpers/get-random-traits";
@@ -47,10 +51,11 @@ export const useGenerateRandomHandler = (
         name: characterName,
       });
 
-      /*dispatch({
-        type: ViewStateActionType.SetBountyImage,
-        bountyImage: response.url,
-      });*/
+      await postRequest(generate, {
+        ...traits,
+        name: characterName,
+      });
+
       dispatchCharacterChange({
         data: {
           name: characterName,

@@ -1,4 +1,8 @@
-import { generateDescription, generateName } from "../constants/endpoints";
+import {
+  generate,
+  generateDescription,
+  generateName,
+} from "../constants/endpoints";
 import {
   CharacterState,
   useCharacterContext,
@@ -36,10 +40,11 @@ export const useGenerateBountyHandler = (
         name: characterName,
       });
 
-      /*dispatch({
-        type: ViewStateActionType.SetBountyImage,
-        bountyImage: response.url,
-      });*/
+      await postRequest(generate, {
+        ...traits,
+        name: characterName,
+      });
+
       dispatchCharacterChange({
         data: {
           ...traits,

@@ -3,8 +3,6 @@
  * The request and response are expected to be in JSON format
  */
 export const postRequest = async (url: string, body: any) => {
-  console.log(body);
-
   const response = await fetch(`http://localhost:8000${url}`, {
     method: "POST",
     headers: {

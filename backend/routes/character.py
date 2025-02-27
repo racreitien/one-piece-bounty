@@ -1,45 +1,15 @@
+import json
 from fastapi import APIRouter
-from pydantic import BaseModel
 from openai import OpenAI
-from diffusers import DiffusionPipeline
-import torch
 import os
-from character_types import Group, Gender, EyeColor, HairColor, SkinColor
+from huggingface_hub import InferenceClient
+from character_types import Gender
+from request_types import BountyPosterRequest
 
 router = APIRouter()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-'''
-# Load base and refiner pipelines for SDXL model
-base = DiffusionPipeline.from_pretrained(
-    "stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16, variant="fp16", use_safetensors=True
-)
-base.to("cuda")
-refiner = DiffusionPipeline.from_pretrained(
-    "stabilityai/stable-diffusion-xl-refiner-1.0",
-    text_encoder_2=base.text_encoder_2,
-    vae=base.vae,
-    torch_dtype=torch.float16,
-    use_safetensors=True,
-    variant="fp16",
-)
-refiner.to("cuda")
-
-# Define how many steps and what % of steps to be run on each expert (80/20) here
-n_steps = 40
-high_noise_frac = 0.8
-'''
-
-
-class BountyPosterRequest(BaseModel):
-    name: str
-    group: Group
-    bounty: int
-    gender: Gender
-    age: int
-    eyeColor: EyeColor
-    hairColor: HairColor
-    skinColor: SkinColor
+hfClient = InferenceClient(token=os.getenv("HF_API_KEY"))
 
 
 @router.post("/generate")
@@ -48,29 +18,15 @@ async def generate(request: BountyPosterRequest):
         A {request.gender} character from the One Piece anime. The character has
         {request.eyeColor} eyes, {request.hairColor} hair and {request.skinColor} skin. 
         They are {request.age} years old.
-    '''
 
-    '''
-    The poster says WANTED at the top. At the bottom, it says DEAD OR ALIVE.
+        The poster says WANTED at the top. At the bottom, it says DEAD OR ALIVE.
         Below that, ${request.bounty}.
     '''
 
-    ''' Run the stable diffusion pipelines to generate the image
-    image = base(
-        prompt=prompt,
-        num_inference_steps=n_steps,
-        denoising_end=high_noise_frac,
-        output_type="latent",
-    ).images
-    image = refiner(
-        prompt=prompt,
-        num_inference_steps=n_steps,
-        denoising_start=high_noise_frac,
-        image=image,
-    ).images[0]
+    bountyposter = hfClient.text_to_image(prompt, model="stabilityai/stable-diffusion-3.5-large")
+    bountyposter.save("../poster.png")
 
-    return image'''
-    return {}
+    return json.dumps({"url": "localhost:8000/poster.png"})
 
 
 @router.post("/generate/name")

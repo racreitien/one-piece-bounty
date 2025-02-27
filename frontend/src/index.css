@@ -134,3 +134,13 @@ select {
 .loading {
   animation: loadingAnimation 1s infinite;
 }
+
+.bounty-poster {
+  width: 100%;
+  height: auto;
+}
+
+.poster-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
