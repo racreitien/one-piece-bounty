@@ -24,15 +24,22 @@ body {
 }
 
 .main-content {
-  padding-top: 150px;
   width: 100%;
   max-width: 23rem;
   margin: auto;
 }
 
+.top-padding {
+  padding-top: 150px;
+}
+
+.top-padding-poster {
+  padding-top: 20px;
+}
+
 h1 {
   font-size: 2.9em;
-  line-height: 0.5;
+  line-height: 1;
 }
 
 h2 {

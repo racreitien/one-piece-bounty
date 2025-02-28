@@ -48,7 +48,7 @@ export const CustomizeCharacterView: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="top-padding">
       <h2 className="view-title">Customize your character</h2>
       {errorMessage && <p>{errorMessage}</p>}
       <div className="form-container">
@@ -129,6 +129,6 @@ export const CustomizeCharacterView: React.FC = () => {
       <div className="button-container">
         <button onClick={onBack}>Back</button>
       </div>
-    </>
+    </div>
   );
 };

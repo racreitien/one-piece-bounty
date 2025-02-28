@@ -34,7 +34,7 @@ export const BountyView: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className={posterUrl ? "top-padding-poster" : "top-padding"}>
       <h1 className="view-title">{name}</h1>
       <h2>{group}</h2>
       {!posterUrl && (
@@ -68,6 +68,6 @@ export const BountyView: React.FC = () => {
       <div className="card">
         <button onClick={onStartOver}>Start over</button>
       </div>
-    </>
+    </div>
   );
 };

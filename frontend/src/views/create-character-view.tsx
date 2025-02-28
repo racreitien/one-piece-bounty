@@ -19,7 +19,7 @@ export const CreateCharacterView: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="top-padding">
       <h2 className="view-title">Create your character</h2>
       {errorMessage && <p>{errorMessage}</p>}
       <div className="form-container">
@@ -59,6 +59,6 @@ export const CreateCharacterView: React.FC = () => {
           )}
         </button>
       </div>
-    </>
+    </div>
   );
 };
