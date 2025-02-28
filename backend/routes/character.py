@@ -1,32 +1,68 @@
-import json
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from openai import OpenAI
 import os
 from huggingface_hub import InferenceClient
-from character_types import Gender
+from character_types import Gender, Group
+from create_bounty_poster import create_bounty_poster
 from request_types import BountyPosterRequest
+from fastapi.responses import FileResponse
 
 router = APIRouter()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 hfClient = InferenceClient(token=os.getenv("HF_API_KEY"))
 
+poster_output_path = "images/bountyposter.png"
+
 
 @router.post("/generate")
 async def generate(request: BountyPosterRequest):
-    prompt = f'''
-        A {request.gender} character from the One Piece anime. The character has
-        {request.eyeColor} eyes, {request.hairColor} hair and {request.skinColor} skin. 
-        They are {request.age} years old.
+    age_desc = "a young child"
+    if 13 <= request.age < 20:
+        age_desc = "a teenager"
+    elif request.age < 40:
+        age_desc = "a young adult"
+    elif request.age < 65:
+        age_desc = "middle-aged"
+    else:
+        age_desc = "elderly"
 
-        The poster says WANTED at the top. At the bottom, it says DEAD OR ALIVE.
-        Below that, ${request.bounty}.
+    prompt = f'''
+        A candid portrait of a {request.gender} character from the One Piece anime, who is {age_desc} with 
+        {request.eyeColor} eyes, {request.hairColor} hair and {request.skinColor} skin. 
+        {f"The character belongs to {request.group}" if request.group != Group.Unaffiliated else ""}
     '''
 
-    bountyposter = hfClient.text_to_image(prompt, model="stabilityai/stable-diffusion-3.5-large")
-    bountyposter.save("../poster.png")
+    negative_prompt = "Text"
 
-    return json.dumps({"url": "localhost:8000/poster.png"})
+    try:
+        sdxl_image = hfClient.text_to_image(prompt,
+                                            negative_prompt=negative_prompt,
+                                            width=480,
+                                            height=352,
+                                            model="stabilityai/stable-diffusion-3.5-large")
+
+        sdxl_image.save("images/character.png")
+
+        if os.path.exists(poster_output_path):
+            os.remove(poster_output_path)
+
+        create_bounty_poster(character_image_path="images/character.png",
+                             template_path="images/bountypostertemplate.jpg",
+                             output_path=poster_output_path,
+                             name=request.name,
+                             bounty=request.bounty)
+    except Exception as e:
+        print(str(e))
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/poster")
+async def poster():
+    if os.path.exists(poster_output_path):
+        return FileResponse(poster_output_path)
+    else:
+        raise HTTPException(status_code=404, detail="Bounty poster image not found")
 
 
 @router.post("/generate/name")
@@ -78,6 +114,7 @@ async def generatedescription(request: BountyPosterRequest):
             
             Come up with either a skill (such as navigator or chef), or a Devil Fruit power that this character has.
             
+            Do NOT explicitly reference their age unless it is below 15 or above 100.
             Do NOT include a title for the introduction. Separate the introduction into two short paragraphs.
             Keep your sentences very short. Refer to {request.name} as {pronouns}. It's not necessary to mention their
             appearance, unless it's unusual. 
