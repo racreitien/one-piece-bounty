@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
   return (
     <CharacterProvider>
-      <header className="app-header">One Piece Character Creator</header>
+      <header className="app-header">One Piece Bounty</header>
       <div className="main-content">{renderView()}</div>
     </CharacterProvider>
   );

@@ -60,7 +60,7 @@ export const useGenerateBountyHandler = (
         currentView: View.Bounty,
       });
     } catch (err) {
-      setErrorMessage(String(err));
+      setErrorMessage("Failed to generate. Try again later.");
     } finally {
       setLoading(false);
     }

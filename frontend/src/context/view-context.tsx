@@ -2,15 +2,9 @@ import { createContext, useContext } from "react";
 import { View } from "../types/types";
 
 export enum ViewStateActionType {
-  SetBountyImage,
   SetDescription,
   SetView,
 }
-
-type SetBountyImageAction = {
-  type: ViewStateActionType.SetBountyImage;
-  bountyImage: string;
-};
 
 type SetDescriptionAction = {
   type: ViewStateActionType.SetDescription;
@@ -22,19 +16,14 @@ type SetViewAction = {
   currentView: View;
 };
 
-export type UpdateViewStateAction =
-  | SetBountyImageAction
-  | SetViewAction
-  | SetDescriptionAction;
+export type UpdateViewStateAction = SetViewAction | SetDescriptionAction;
 
 export type ViewState = {
-  bountyImage: string;
   description: string;
   currentView: View;
 };
 
 export const defaultViewState: ViewState = {
-  bountyImage: "",
   description: "",
   currentView: View.CreateCharacter,
 };

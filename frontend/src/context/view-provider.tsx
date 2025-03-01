@@ -10,8 +10,6 @@ function reducer(state: ViewState, action: UpdateViewStateAction): ViewState {
   switch (action.type) {
     case ViewStateActionType.SetView:
       return { ...state, currentView: action.currentView };
-    case ViewStateActionType.SetBountyImage:
-      return { ...state, bountyImage: action.bountyImage };
     case ViewStateActionType.SetDescription:
       return { ...state, description: action.description };
     default:
