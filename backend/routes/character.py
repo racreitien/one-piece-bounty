@@ -28,9 +28,10 @@ async def generate(request: BountyPosterRequest):
         age_desc = "elderly"
 
     prompt = f'''
-        A candid portrait of a {request.gender} character from the One Piece anime, who is {age_desc} with 
+        Drawing of a {request.gender} character from the One Piece anime, who is {age_desc} with 
         {request.eyeColor} eyes, {request.hairColor} hair and {request.skinColor} skin. 
         {f"The character belongs to {request.group}" if request.group != Group.Unaffiliated else ""}
+        One Piece manga art style.
     '''
 
     negative_prompt = "Text"
@@ -71,7 +72,7 @@ async def generatename(request: BountyPosterRequest):
                 I will give you some information about a new, imaginary character in the One Piece world from 
                 the One Piece anime. Using this information, you will think of a name for the character.
                 
-                The name should be short, creative, and relevant to the character's traits.
+                The name should be short, creative, and relevant to the character's traits. No more than 15 characters long.
 
                 Here is the information you will use:
                 The character's gender is {request.gender}. They are {request.age} years old
@@ -103,6 +104,8 @@ async def generatedescription(request: BountyPosterRequest):
     elif request.gender == Gender.Female:
         pronouns = "she/her"
 
+    group_info = f"The skill or power should make sense for their group, {request.group}."
+
     prompt = f'''
             I will give you some information about a new, imaginary character in the One Piece world from 
             the One Piece anime. Using this information, you will generate a short introduction for the character.
@@ -113,6 +116,7 @@ async def generatedescription(request: BountyPosterRequest):
             {request.hairColor} hair and {request.skinColor} skin.
             
             Come up with either a skill (such as navigator or chef), or a Devil Fruit power that this character has.
+            {group_info if request.group != Group.Unaffiliated else ""}
             
             Do NOT explicitly reference their age unless it is below 15 or above 100.
             Do NOT include a title for the introduction. Separate the introduction into two short paragraphs.
