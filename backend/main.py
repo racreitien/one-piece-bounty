@@ -1,12 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import character
+from pydantic_settings import BaseSettings
 
+
+class Settings(BaseSettings):
+    mode: str = "Prod"
+
+
+settings = Settings()
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
-    "https://character-gen-api.onrender.com"
+    "http://localhost:5173" if settings.mode == "Dev" else "https://one-piece-bounty.onrender.com",
 ]
 
 app.add_middleware(
