@@ -11,12 +11,16 @@ Enter a name, pirate group, desired bounty, and customize the character's appear
 ```markdown
 cd backend
 python -m venv .venv
+
 # On macOS/Linux:
+
 source .venv/bin/activate
+
 # On Windows:
+
 .venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn main:app --reload
+uvicorn asgi:application --reload
 ```
 
 ### Frontend

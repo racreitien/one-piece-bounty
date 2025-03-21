@@ -5,7 +5,8 @@ from routes import character
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://character-gen-api.onrender.com"
 ]
 
 app.add_middleware(
