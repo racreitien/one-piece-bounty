@@ -1,3 +1,4 @@
-export const generate = "/generate";
-export const generateName = "/generate/name";
-export const generateDescription = "/generate/description";
+export const generate = "/api/generate";
+export const generateName = "/api/generate/name";
+export const generateDescription = "/api/generate/description";
+export const poster = "/api/poster";
