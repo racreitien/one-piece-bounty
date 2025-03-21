@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   let BACKEND_URL = "";
   const env = loadEnv(mode, process.cwd(), "");
 
-  if (env.MODE == "development") {
+  if (env.MODE != "production") {
     BACKEND_URL = "localhost:8000";
   } else {
     BACKEND_URL = env.BASE_URL;
@@ -14,14 +14,13 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    server: {
-      proxy: {
-        "/api": BACKEND_URL,
-      },
-      port: 8000,
+    preview: {
       cors: {
-        origin: BACKEND_URL,
+        origin: [BACKEND_URL],
       },
+      origin: BACKEND_URL,
+    },
+    server: {
       origin: BACKEND_URL,
     },
   };
