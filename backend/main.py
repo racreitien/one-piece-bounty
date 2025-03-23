@@ -23,3 +23,7 @@ async def root():
     return {"message": "Hello World"}
 
 app.include_router(character.router)
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("UVICORN_PORT", 8000))
