@@ -50,7 +50,7 @@ export const CustomizeCharacterView: React.FC = () => {
   return (
     <div className="top-padding">
       <h2 className="view-title">Customize your character</h2>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className="error">{errorMessage}</p>}
       <div className="form-container">
         <div className="form-group">
           <label htmlFor="gender">Gender</label>
