@@ -20,7 +20,7 @@ source .venv/bin/activate
 
 .venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn asgi:application --reload
+uvicorn main:app --reload
 ```
 
 ### Frontend
