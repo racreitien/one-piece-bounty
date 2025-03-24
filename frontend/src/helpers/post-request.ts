@@ -13,6 +13,7 @@ export const postRequest = async (url: string, body: any) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    signal: AbortSignal.timeout(10000),
   });
 
   return response.json();
