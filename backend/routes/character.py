@@ -34,7 +34,8 @@ async def generate(request: BountyPosterRequest):
         One Piece manga art style.
     '''
 
-    negative_prompt = "Text"
+    negative_prompt = "text, nsfw, nudity, pornography, explicit content, sexual content, gore, violence," \
+                      "disturbing imagery, offensive content"
 
     try:
         if os.path.exists(poster_output_path):
@@ -42,9 +43,10 @@ async def generate(request: BountyPosterRequest):
 
         sdxl_image = hfClient.text_to_image(prompt,
                                             negative_prompt=negative_prompt,
+                                            model="stabilityai/stable-diffusion-3.5-large",
                                             width=480,
                                             height=352,
-                                            model="stabilityai/stable-diffusion-3.5-large")
+                                            guidance_scale=7.5)
 
         sdxl_image.save("images/character.png")
 

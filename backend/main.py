@@ -26,4 +26,4 @@ app.include_router(character.router)
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("UVICORN_PORT", 8000))
+    port = int(os.environ.get("PORT", 8000))
