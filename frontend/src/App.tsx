@@ -6,6 +6,7 @@ import { View } from "./types/types";
 import CharacterProvider from "./context/character-provider";
 import React from "react";
 import { useViewContext } from "./context/view-context";
+import anchorIcon from "./images/anchor.svg";
 
 const App: React.FC = () => {
   const {
@@ -27,7 +28,9 @@ const App: React.FC = () => {
 
   return (
     <CharacterProvider>
-      <header className="app-header">One Piece Bounty</header>
+      <header className="app-header">
+        One Piece Bounty <img src={anchorIcon} width="15px"></img>
+      </header>
       <div className="main-content">{renderView()}</div>
     </CharacterProvider>
   );
