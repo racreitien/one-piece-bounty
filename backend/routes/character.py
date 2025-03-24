@@ -37,6 +37,9 @@ async def generate(request: BountyPosterRequest):
     negative_prompt = "Text"
 
     try:
+        if os.path.exists(poster_output_path):
+            os.remove(poster_output_path)
+
         sdxl_image = hfClient.text_to_image(prompt,
                                             negative_prompt=negative_prompt,
                                             width=480,
@@ -44,9 +47,6 @@ async def generate(request: BountyPosterRequest):
                                             model="stabilityai/stable-diffusion-3.5-large")
 
         sdxl_image.save("images/character.png")
-
-        if os.path.exists(poster_output_path):
-            os.remove(poster_output_path)
 
         create_bounty_poster(character_image_path="images/character.png",
                              template_path="images/bountypostertemplate.jpg",
