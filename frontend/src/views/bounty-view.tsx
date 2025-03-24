@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import berryIcon from "../images/berry.svg";
 import { useCharacterContext } from "../context/character-context";
 import { useViewContext } from "../context/view-context";
 import { useStartOverHandler } from "./bounty-view-hooks";
@@ -17,7 +18,9 @@ export const BountyView: React.FC = () => {
   const [posterUrl, setPosterUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(host + poster)
+    let url = "";
+
+    fetch(host + poster, { cache: "no-store" })
       .then((response) => {
         if (response.ok) {
           return response.blob();
@@ -26,12 +29,18 @@ export const BountyView: React.FC = () => {
         }
       })
       .then((blob) => {
-        const url = URL.createObjectURL(blob);
+        url = URL.createObjectURL(blob);
         setPosterUrl(url);
       })
       .catch((error) => {
         console.error(error);
       });
+
+    return () => {
+      if (url) {
+        URL.revokeObjectURL(url);
+      }
+    };
   }, []);
 
   return (
@@ -43,7 +52,7 @@ export const BountyView: React.FC = () => {
           <h3>
             {"Bounty: "}
             <img
-              src="/src/images/berry.svg"
+              src={berryIcon}
               alt="berry currency symbol"
               className="berry-icon"
             />

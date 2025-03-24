@@ -4,6 +4,4 @@ export const generateDescription = "/generate/description";
 export const poster = "/poster";
 
 export const host =
-  import.meta.env.MODE == "production"
-    ? import.meta.env.BASE_URL
-    : "http://localhost:8000";
+  __APP_ENV__ == "production" ? __BASE_URL__ : "http://localhost:8080";
