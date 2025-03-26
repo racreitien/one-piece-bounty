@@ -6,7 +6,7 @@ Enter a name, pirate group, desired bounty, and customize the character's appear
 
 ## About
 
-The goal of this project was to explore the capabilities of Generative AI in a fun way. I wanted to get familiar with prompting and integrating generative models into a full-stack application. The project is live at [one-piece-bounty.onrender.com](one-piece-bounty.onrender.com). :tada:
+The goal of this project was to explore the capabilities of Generative AI in a fun way. I wanted to get familiar with prompting and integrating generative models into a full-stack application. The project is live at [one-piece-bounty.onrender.com](https://one-piece-bounty.onrender.com/) :tada:.
 
 The frontend is built with React in TypeScript, served by Vite.
 - The app is a SPA with three views, two for entering customization options and one for displaying the final character with its poster.
