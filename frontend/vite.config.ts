@@ -19,9 +19,6 @@ export default defineConfig(() => {
       },
       origin: baseURL,
     },
-    server: {
-      origin: baseURL,
-    },
     define: {
       __BASE_URL__: JSON.stringify(baseURL),
       __APP_ENV__: JSON.stringify(process.env.MODE || ""),

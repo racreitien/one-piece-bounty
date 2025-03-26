@@ -4,14 +4,23 @@ import { CustomizeCharacterView } from "./views/customize-character-view";
 import { BountyView } from "./views/bounty-view";
 import { View } from "./types/types";
 import CharacterProvider from "./context/character-provider";
-import React from "react";
+import React, { useEffect } from "react";
 import { useViewContext } from "./context/view-context";
 import anchorIcon from "./images/anchor.svg";
+import { host } from "./constants/endpoints";
 
 const App: React.FC = () => {
   const {
-    state: { currentView },
+    state: { currentView, serverWarmupDone },
   } = useViewContext();
+
+  useEffect(() => {
+    if (!serverWarmupDone) {
+      fetch(host).catch((error) => {
+        console.error(error);
+      });
+    }
+  }, []);
 
   const renderView = () => {
     switch (currentView) {

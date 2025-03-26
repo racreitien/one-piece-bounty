@@ -4,6 +4,7 @@ import { View } from "../types/types";
 export enum ViewStateActionType {
   SetDescription,
   SetView,
+  SetServerWarmupDone,
 }
 
 type SetDescriptionAction = {
@@ -16,16 +17,26 @@ type SetViewAction = {
   currentView: View;
 };
 
-export type UpdateViewStateAction = SetViewAction | SetDescriptionAction;
+type SetServerWarmupDoneAction = {
+  type: ViewStateActionType.SetServerWarmupDone;
+  serverWarmupDone: boolean;
+};
+
+export type UpdateViewStateAction =
+  | SetViewAction
+  | SetDescriptionAction
+  | SetServerWarmupDoneAction;
 
 export type ViewState = {
   description: string;
   currentView: View;
+  serverWarmupDone: boolean;
 };
 
 export const defaultViewState: ViewState = {
   description: "",
   currentView: View.CreateCharacter,
+  serverWarmupDone: false,
 };
 
 type ViewContext = {
