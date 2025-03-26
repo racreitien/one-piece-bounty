@@ -43,6 +43,12 @@ body {
   padding-top: 20px;
 }
 
+@media (min-height: 1230px) {
+  .top-padding-poster {
+    padding-top: 60px;
+  }
+}
+
 h1 {
   font-size: 2.9em;
   line-height: 1;
