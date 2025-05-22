@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import character
+from routes import character, validate
 import os
 
 app = FastAPI()
@@ -23,6 +23,7 @@ async def root():
     return {"message": "Hello World"}
 
 app.include_router(character.router)
+app.include_router(validate.router)
 
 
 if __name__ == "__main__":
